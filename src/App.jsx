@@ -32,7 +32,7 @@ const QuizApp = () => {
   // دالة إرسال الإيميل
   const sendResults = useCallback((finalAnswers) => {
     const templateParams = {
-      to_email: 'maherjop@gmail.com', // ضع إيميلك هنا
+      to_email: 'maherjob@gmail.com', // ضع إيميلك هنا
       message: JSON.stringify(finalAnswers, null, 2),
       subject: "نتائج اختبار البرمجة الجديد"
     };
