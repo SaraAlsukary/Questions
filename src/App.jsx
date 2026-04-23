@@ -8,13 +8,13 @@ const questions = [
   { id: 3, q: "اسم المستخدم الأساسي في سيرفرات اللينوكس عادة ما يكون:", options: ["root", "admin", "owner"], ans: "root" },
   { id: 4, q: "في لغة بايثون، أمر تثبيت المكتبات (مثل requests) هو:", options: ["pip", "python3", "Cd"], ans: "pip" },
   { id: 5, q: "لتشغيل ملف الباك إيند (بايثون) على اللوكال المحلي، الأمر هو:", options: ["pip", "python", "mv"], ans: "python" },
-  { id: 6, q: "هل نستطيع استدعاء صفحة PHP على اللوكال بإضافة اللاحقة مثل بايثون؟", options: ["نعم", "لا"], ans: "لا" },
+  { id: 6, q: "هل نستطيع استدعاء صفحة PHP على اللوكال بإضافة اللاحقة مثل بايثون؟ مثال: http://127.0.0.1:5500/index.html", options: ["نعم", "لا"], ans: "لا" },
   { id: 7, q: "لتوجيه api خاص بنموذج ذكاء اصطناعي معين نستخدم:", options: ["system prompt", "payload", "static"], ans: "system prompt" },
   {
     id: 8,
     q: "أي مما يلي يُستخدم لتحويل JSON إلى Object في JavaScript؟",
-    options: ["JSON.parse()", "JSON.stringify()", "Object.assign()", "Object.create()"],
-    ans: "JSON.parse()"
+    options: ["()JSON.parse", "()JSON.stringify", "()Object.assign", "()Object.create"],
+    ans: "()JSON.parse"
   },
   {
     id: 9,
@@ -26,14 +26,13 @@ const questions = [
 const QuizApp = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
-  // const [timeLeft, setTimeLeft] = useState(480); // 8 دقائق بالثواني
-  const [timeLeft, setTimeLeft] = useState(100); // 8 دقائق بالثواني
+  const [timeLeft, setTimeLeft] = useState(300); // 8 دقائق بالثواني
   const [isFinished, setIsFinished] = useState(false);
 
   // دالة إرسال الإيميل
   const sendResults = useCallback((finalAnswers) => {
     const templateParams = {
-      to_email: 'maherjob8@gmail.com', // ضع إيميلك هنا
+      to_email: 'maherjop@gmail.com', // ضع إيميلك هنا
       message: JSON.stringify(finalAnswers, null, 2),
       subject: "نتائج اختبار البرمجة الجديد"
     };
